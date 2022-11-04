@@ -122,7 +122,22 @@ public class DiveTable {
         return dKey;
     }
     public String bottomTimeRoundUp() {
-    return tKey;
+        //input dKey, which is a String. String is in map of bottomTimeTable
+        //input also int bottomTime, from constructor
+        int[] times = bottomTimeTable.get(dKey);
+        for (int i = 0; i < times.length; i++) {
+            int time = times[i];
+            if (time>bottomTime){
+                tKey = String.valueOf(times[i+1]);
+                break;
+            } else if (time == bottomTime){
+                tKey = String.valueOf(time);
+                break;
+            }
+        }
+        //output tKey
+
+        return tKey;
     }
         //TODO: all time rounds for depths other than 35
 
