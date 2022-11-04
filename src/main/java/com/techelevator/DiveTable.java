@@ -8,7 +8,7 @@ public class DiveTable {
 
     private int depth;
     private int bottomTime;
-    private char pressureGroup;
+    private char pressureGroup;    //don't need to make a variable?
     private int surfaceInterval;
     private char pressureGroupAfterSI;
     private String dKey;
