@@ -64,7 +64,9 @@ public class DiveTable {
     }
     // methods
 
-    public Map<String, Character> map = Map.of(
+    public Map<String, Character> mapPressureGroup = Map.of(
+            //TODO: finish map for pressure group
+
             "35,10", 'A',
             "35,19", 'B',
             "35,25",'C',
@@ -75,7 +77,7 @@ public class DiveTable {
         depthRoundUp();
         bottomTimeRoundUp();
         String dTKey = dKey + "," + tKey;
-        return map.get(dTKey);
+        return mapPressureGroup.get(dTKey);
     }
     public String depthRoundUp(){
         if (depth <= 35){
@@ -117,6 +119,8 @@ public class DiveTable {
         return dKey;
     }
     public String bottomTimeRoundUp(){
+        //TODO: all time rounds for depths other than 35
+
         if (getDKey() == "35"){
             if (bottomTime <=10){
                 tKey = "10";
@@ -195,5 +199,6 @@ public class DiveTable {
         }
         return tKey;
     }
-
+    // TODO METHOD: Calculate next pressure group after knowing surface interval
+    //TODO METHOD: Calculate how long a surface interval needs to be in order to safely make 2 dives
 }
