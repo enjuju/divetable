@@ -1,6 +1,7 @@
 package com.techelevator;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class DiveTable {
@@ -62,6 +63,11 @@ public class DiveTable {
         this.bottomTime = bottomTime;
         this.surfaceInterval = surfaceInterval;
     }
+    // static stuff?
+    public Map<String, int[]> bottomTimeTable = new HashMap<String, int[]>(){{
+        put("35", new int[] {10,19,25,29,32,36,40,44,48,52,57,62,67,73,79,85,92,100,108,117,127,139,152,168,188,205});
+        put("40", new int[] {9,16,22,25,27,31,34,37,40,44,48,51,55,60,64,69,74,79,85,91,97,104,111,120,129,140});
+    }};
 
 
     // methods
