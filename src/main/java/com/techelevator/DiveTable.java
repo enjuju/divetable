@@ -51,24 +51,26 @@ public class DiveTable {
     }
 
     // derived variable
-    public char getPressureGroup(){
+    public char getPressureGroup() {
         depthRoundUp();
         bottomTimeRoundUp();
         String dTKey = dKey + "," + tKey;
         return mapPressureGroup.get(dTKey);
     }
+
     // constructor
     public DiveTable(int depth, int bottomTime, int surfaceInterval) {
         this.depth = depth;
         this.bottomTime = bottomTime;
         this.surfaceInterval = surfaceInterval;
     }
-    // static stuff?
-    public Map<String, int[]> bottomTimeTable = new HashMap<String, int[]>(){{
-        put("35", new int[] {10,19,25,29,32,36,40,44,48,52,57,62,67,73,79,85,92,100,108,117,127,139,152,168,188,205});
-        put("40", new int[] {9,16,22,25,27,31,34,37,40,44,48,51,55,60,64,69,74,79,85,91,97,104,111,120,129,140});
-    }};
 
+    // static stuff?
+    public Map<String, int[]> bottomTimeTable = new HashMap<String, int[]>() {{
+        put("35", new int[]{10, 19, 25, 29, 32, 36, 40, 44, 48, 52, 57, 62, 67, 73, 79, 85, 92, 100, 108, 117, 127, 139, 152, 168, 188, 205});
+        put("40", new int[]{9, 16, 22, 25, 27, 31, 34, 37, 40, 44, 48, 51, 55, 60, 64, 69, 74, 79, 85, 91, 97, 104, 111, 120, 129, 140});
+    }};
+    //why double curlies?
 
     // methods
 
@@ -77,70 +79,57 @@ public class DiveTable {
 
             "35,10", 'A',
             "35,19", 'B',
-            "35,25",'C',
+            "35,25", 'C',
             "35,29", 'D',
             "35,32", 'E');
 
 
-    public String depthRoundUp(){
-        if (depth <= 35){
+    public String depthRoundUp() {
+        if (depth <= 35) {
             dKey = "35";
-        }
-        else if (depth <= 40){
+        } else if (depth <= 40) {
             dKey = "40";
-        }
-        else if (depth <= 50){
+        } else if (depth <= 50) {
             dKey = "50";
-        }
-        else if (depth <= 60){
+        } else if (depth <= 60) {
             dKey = "60";
-        }
-        else if (depth <= 70){
+        } else if (depth <= 70) {
             dKey = "70";
-        }
-        else if (depth <= 80){
+        } else if (depth <= 80) {
             dKey = "80";
-        }
-        else if (depth <= 90){
+        } else if (depth <= 90) {
             dKey = "90";
-        }
-        else if (depth <= 100){
+        } else if (depth <= 100) {
             dKey = "100";
-        }
-        else if (depth <= 110){
+        } else if (depth <= 110) {
             dKey = "110";
-        }
-        else if (depth <= 120){
+        } else if (depth <= 120) {
             dKey = "120";
-        }
-        else if (depth <= 130){
+        } else if (depth <= 130) {
             dKey = "130";
-        }
-        else if (depth <= 140){
+        } else if (depth <= 140) {
             dKey = "140";
         }
         return dKey;
     }
+
     public String bottomTimeRoundUp() {
-        //input dKey, which is a String. String is in map of bottomTimeTable
-        //input also int bottomTime, from constructor
+        //inputs: bottomTimeTable, dKey, bottomTime
         int[] times = bottomTimeTable.get(dKey);
         for (int i = 0; i < times.length; i++) {
             int time = times[i];
-            if (time>bottomTime){
-                tKey = String.valueOf(times[i+1]);
-                break;
-            } else if (time == bottomTime){
-                tKey = String.valueOf(time);
+            if (bottomTime <= time) {
+                tKey = String.valueOf(times[i]);
                 break;
             }
-        }
-        //output tKey
+            //output: tKey
 
+
+        }
         return tKey;
-    }
         //TODO: all time rounds for depths other than 35
 
-    // TODO METHOD: Calculate next pressure group after knowing surface interval
-    //TODO METHOD: Calculate how long a surface interval needs to be in order to safely make 2 dives
+        // TODO METHOD: Calculate next pressure group after knowing surface interval
+        //TODO METHOD: Calculate how long a surface interval needs to be in order to safely make 2 dives
+    }
 }
