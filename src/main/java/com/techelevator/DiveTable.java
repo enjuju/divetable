@@ -1,19 +1,22 @@
 package com.techelevator;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class DiveTable {
     // instance variables
 
     private int depth;
     private int bottomTime;
-    private int pressureGroup;
+    private char pressureGroup;
     private int surfaceInterval;
-    private int pressureGroupAfterSI;
+    private char pressureGroupAfterSI;
 
-    public int getPressureGroup() {
+    public char getPressureGroup() {
         return pressureGroup;
     }
 
-    public int getPressureGroupAfterSI() {
+    public char getPressureGroupAfterSI() {
         return pressureGroupAfterSI;
     }
 
@@ -51,7 +54,21 @@ public class DiveTable {
     }
     // methods
 
-    public char calculatePressureGroup(int depth, int bottomTime){
-        // Map<Integer, List<Integers>>
+    public Map<String, Character> map = Map.of(
+            "35,10", 'A',
+            "35,19", 'B');
+
+    public char calculatePressureGroup(){
+        String dHash = "";
+        String tHash = "";
+        if (depth <= 35){
+            dHash = "35";
+        }
+        if (bottomTime <=10){
+            tHash = "10";
+        }
+        String DTHash = dHash +","+tHash;
+        return map.get(DTHash);
     }
+
 }
