@@ -19,7 +19,7 @@ public class DiveTableProgram {
         input.nextLine();
 
         DiveTable diveTable = new DiveTable(depth, bottomTime, surfaceInterval);
-        char pressureGroup = diveTable.calculatePressureGroup();
+        char pressureGroup = diveTable.getPressureGroup();
         System.out.println("Your pressure group is now: " + pressureGroup);
     }
 }
