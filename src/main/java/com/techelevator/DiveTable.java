@@ -69,7 +69,7 @@ public class DiveTable {
     }
 
     // static stuff?
-    public Map<String, int[]> bottomTimeTable = new HashMap<String, int[]>() {{
+    public static Map<String, int[]> bottomTimeTable = new HashMap<String, int[]>() {{
         put("35", new int[]{10, 19, 25, 29, 32, 36, 40, 44, 48, 52, 57, 62, 67, 73, 79, 85, 92, 100, 108, 117, 127, 139, 152, 168, 188, 205});
         put("40", new int[]{9, 16, 22, 25, 27, 31, 34, 37, 40, 44, 48, 51, 55, 60, 64, 69, 74, 79, 85, 91, 97, 104, 111, 120, 129, 140});
         put("50", new int[]{7,13,17,19,21,24,26,28,31,33,36,39,41,44,47,50,53,57,60,63,67,71,75,80});
@@ -85,7 +85,7 @@ public class DiveTable {
 
     // methods
 
-    public Map<String, Character> mapPressureGroup = Map.ofEntries(
+    public static Map<String, Character> mapPressureGroup = Map.ofEntries(
             entry("35,10",'A'),
             entry("35,19",'B'),
             entry("35,25",'C'),
